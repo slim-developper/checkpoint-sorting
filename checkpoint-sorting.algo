@@ -1,0 +1,35 @@
+PROCEDURE insert(T:ARRAY_OF INTEGER,pos:INTEGER,val:INTEGER)
+VAR
+    i: INTEGER
+    
+BEGIN
+ i:=pos-1;
+ while((i>=0)and(T[i]>val))THEN
+  T[i+1]:=T[i];
+  i:=i-1;
+  T[i+1]:=val;
+  END-while
+  
+END
+
+ALGORITHM ins-sort
+VAR
+    T:ARRAY_OF INTEGER;
+    pos,i,n:=INTEGER;
+BEGIN
+REPEAT
+  write("donner longueur tableau n supérieur à 1");
+    read(n);
+UNTIL (n>1)
+
+FOR i FROM 1 TO n DO
+    write("donner la valeur",i"du tableau");
+    read(T[i]);
+END_FOR
+
+ FOR i FROM 0 TO n-1 DO
+     insert(T,i,T[i]);
+ END_FOR
+
+    whrite("le tableau trié est:",T);
+END
